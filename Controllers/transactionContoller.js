@@ -23,6 +23,7 @@ transactionData.get("/transactions",(req,res)=>{
 //Get Specific Transaction and a specific index
 transactionData.get("/transactions/:index",(req,res)=>{
     const index= parseInt(req.params.index);
+    // const {index}=parsInt(req.params)
     if(index<0|| index>= transactionArray.length){
         res.redirect('Sorry, no data found at the index you are searching for')
      }else{
@@ -42,7 +43,7 @@ transactionData.post("/transactions",(req,res)=>{
 })
 
 //To delete a post at a specific
-transactionData.delete("transactions/:index",(req,res)=>{
+transactionData.delete("/transactions/:index",(req,res)=>{
     const index= parseInt(req.params.index);
         if(index===0 || index>= transactionArray.length){
 
@@ -58,11 +59,11 @@ transactionData.delete("transactions/:index",(req,res)=>{
 
 //update a post
 
-transactionData.put("transactions/:index",(req,res)=>{
+transactionData.put("/transactions/:index",(req,res)=>{
     const updatedData=req.body
 
-    const index=parstInt(req.params.index);
-    if(index === 0|| index>= transactionArray.length){
+    const index=parseInt(req.params.index);
+    if(index < 0|| index>= transactionArray.length){
         res.redirect('Sorry, no data found at the index that you are searching for')
 
 }else{

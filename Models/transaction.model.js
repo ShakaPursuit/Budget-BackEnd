@@ -12,7 +12,7 @@ module.exports = [
     },
 
     {
-        date: "09/24/2023 ",
+        date: "09/24/2023" ,
         item_name: "Metro Card ",
         amount: -5.50,
         from: "Debit - from MTA.NYC "
@@ -33,7 +33,7 @@ module.exports = [
         date: "10/01/2023 ",
         item_name: "PayCheck ",
         amount:  4000.00,
-        from: "Meta Inc "
+        from: " Credit - Meta Inc "
 
 
 
