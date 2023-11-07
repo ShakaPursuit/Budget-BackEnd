@@ -1,7 +1,9 @@
 const express=require('express')
 const transactionData=express.Router()
+const bodyParser= require('body-parser')
 const transactionArray= require("../Models/transaction.model")
-
+const jsonParser= bodyParser.json()
+const urlencodedParser=bodyParser.urlencoded({extended:false})
 //Welcome Page / Login from will be implemented 
 transactionData.get("/",(req,res)=>{
 
@@ -14,10 +16,6 @@ transactionData.get("/transactions",(req,res)=>{
 
     res.json(transactionArray)
 })
-// date: "09/23/2023 ",
-// item_name: "Food & Beverage ",
-// amount: -23.99 ,
-// from: "Debit - from KFC "
 
 
 //Get Specific Transaction and a specific index
@@ -59,7 +57,7 @@ transactionData.delete("/transactions/:index",(req,res)=>{
 
 //update a post
 
-transactionData.put("/transactions/:index",(req,res)=>{
+transactionData.put("/transactions/:index",urlencodedParser,(req,res)=>{
     const updatedData=req.body
 
     const index=parseInt(req.params.index);
